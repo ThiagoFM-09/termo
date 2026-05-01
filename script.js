@@ -104,7 +104,7 @@ function verificaAmarelos(palavraDigitada, certinhos) {
 
   for (let i = 0; i < palavraDigitada.length; i++) {
 
-    if (certinhos.includes(i)) continue;
+    if (certinhos.includes(i)) break;
 
     arrayPalavra.some((letraArray) => {
       if (letraArray[0] === palavraDigitada[i] && letraArray[1] > 0) {
