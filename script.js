@@ -101,16 +101,22 @@ function verificaCertos(palavraDigitada) {
  */
 function verificaAmarelos(palavraDigitada, certinhos) {
   let amarelas = [];
+
   for (let i = 0; i < palavraDigitada.length; i++) {
-    for (let j = 0; j < palavraDoJogo.length; j++) {
-      for(let k = 0; k< arrayPalavra.length; k++)
-          if (palavraDigitada[i] === palavraDoJogo[j] && palavraDigitada[i] !== palavraDoJogo[i] && arrayPalavra[k][0] === palavraDigitada[i] && arrayPalavra[k][1]>0)
-          {
-            amarelas.push(i);
-            break;
-          }
-    }
+
+    if (certinhos.includes(i)) continue;
+
+    arrayPalavra.some((letraArray) => {
+      if (letraArray[0] === palavraDigitada[i] && letraArray[1] > 0) {
+        amarelas.push(i);
+        letraArray[1]--; 
+        return true; 
+      }
+      return false;
+    });
+
   }
+
   return amarelas;
 }
 
