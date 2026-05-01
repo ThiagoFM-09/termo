@@ -16,7 +16,6 @@ const numeroAleatorio = Math.floor(Math.random() * 110)
 
 const palavraDoJogo = BancoDePalavras[numeroAleatorio];
 console.log(palavraDoJogo);
-
 //Pega o endereço id da grid em que as letras ficarão
 
 const grid = document.querySelector("#grid");
@@ -104,7 +103,7 @@ function verificaAmarelos(palavraDigitada, certinhos) {
 
   for (let i = 0; i < palavraDigitada.length; i++) {
 
-    if (certinhos.includes(i)) break;
+    if (certinhos.includes(i)) continue;
 
     arrayPalavra.some((letraArray) => {
       if (letraArray[0] === palavraDigitada[i] && letraArray[1] > 0) {
